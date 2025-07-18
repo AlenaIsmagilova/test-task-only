@@ -1,6 +1,7 @@
 import ArrowNext from "../../ui/ArrowNext";
 import ArrowPrev from "../../ui/ArrowPrev";
 import TimeIntervalDots from "../TimeIntervalDots/TimeIntervalDots";
+import css from "./TimeIntervalNavButtons.module.scss";
 
 interface ITimeIntervalNavButtonsProps {
   idx: number;
@@ -25,26 +26,24 @@ const TimeIntervalNavButtons = ({
   canNext,
   dots,
 }: ITimeIntervalNavButtonsProps) => (
-  <div className="time-interval-nav-wrapper">
-    <p className="time-interval-counter">{`0${idx + 1}/0${total}`}</p>
-    <div className="pagination-row">
+  <div className={css.timeIntervalNavWrapper}>
+    <p className={css.timeIntervalCounter}>{`0${idx + 1}/0${total}`}</p>
+    <div className={css.paginationRow}>
       <ArrowPrev
-        className="time-interval-button time-interval-button-prev"
+        className={`${css.timeIntervalButton} ${css.timeIntervalButtonPrev}`}
         disabled={!canPrev}
         onClick={onPrev}
       />
       <ArrowNext
-        className="time-interval-button time-interval-button-next"
+        className={`${css.timeIntervalButton} ${css.timeIntervalButtonNext}`}
         disabled={!canNext}
         onClick={onNext}
       />
-      {/* <div className="mobile-only"> */}
       <TimeIntervalDots
         items={dots.items}
         activeIdx={dots.activeIdx}
         onSelect={dots.onSelect}
       />
-      {/* </div> */}
     </div>
   </div>
 );

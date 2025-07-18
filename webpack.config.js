@@ -15,19 +15,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        use: "ts-loader",
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.s[ac]ss$/i,
-        use: ["style-loader", "css-loader", "sass-loader"],
-      },
-      {
         test: /\.svg$/i,
         oneOf: [
           {
@@ -42,6 +29,41 @@ module.exports = {
       {
         test: /\.(png|jpe?g|gif|webp)$/i,
         type: "asset/resource",
+      },
+      // {
+      // oneOf: [
+      {
+        test: /\.module\.s[ac]ss$/i,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: {
+                localIdentName: "[local]__[hash:base64:5]",
+                namedExport: false,
+              },
+              importLoaders: 2,
+            },
+          },
+          "sass-loader",
+        ],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: ["style-loader", "css-loader", "sass-loader"],
+        exclude: /\.module\.s[ac]ss$/i,
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+      // ],
+      // },
+      {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
       },
     ],
   },

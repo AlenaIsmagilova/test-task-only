@@ -1,5 +1,6 @@
 import YearPoint from "../YearPoint/YearPoint";
 import { CIRCLE_RADIUS, SLICE_ANGLE } from "../../constants/contants";
+import css from "./Circle.module.scss";
 
 interface ICircleProps {
   activeIdx: number;
@@ -8,7 +9,7 @@ interface ICircleProps {
 }
 
 const Circle = ({ activeIdx, onSelect, items }: ICircleProps) => (
-  <div className="circle">
+  <div className={css.circle}>
     {items.map((it, i) => {
       const angle = SLICE_ANGLE * i;
       const rad = ((angle - 90) * Math.PI) / 180;

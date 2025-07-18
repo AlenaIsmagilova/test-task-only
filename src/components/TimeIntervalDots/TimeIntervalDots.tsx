@@ -1,3 +1,5 @@
+import css from "./TimeIntervalDots.module.scss";
+
 interface ITimeIntervalDotsProps {
   items: { name: string }[];
   activeIdx: number;
@@ -12,11 +14,11 @@ const TimeIntervalDots = ({
   activeIdx,
   onSelect,
 }: ITimeIntervalDotsProps) => (
-  <div className="dots-wrapper">
+  <div className={css.dotsWrapper}>
     {items.map((_, i) => (
       <button
         key={i}
-        className={`dot ${i === activeIdx ? "active" : ""}`}
+        className={`${css.dot} ${i === activeIdx ? css.active : ""}`}
         style={{
           width: DOT,
           height: DOT,

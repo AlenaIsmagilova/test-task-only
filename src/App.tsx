@@ -12,7 +12,6 @@ import TimeIntervalNavButtons from "./components/TimeIntervalNavButtons/TimeInte
 import "swiper/css";
 import "swiper/css/navigation";
 import "./styles/main.scss";
-import TimeIntervalDots from "./components/TimeIntervalDots/TimeIntervalDots";
 
 const App = () => {
   const [timeIntervalIndex, setTimeIntervalIndex] = useState(0);
@@ -100,8 +99,6 @@ const App = () => {
       },
     });
 
-    // setTimeIntervalIndex(newIdx);
-
     gsap.to(swiperRef.current, {
       autoAlpha: 0,
       duration: 0.3,
@@ -116,16 +113,8 @@ const App = () => {
     <div className="App">
       <div className="wrapper">
         <div className="main-container">
-          {/* <div className="gradient-line-left" /> */}
-          <TimeIntervalHeader
-            minYear={years[0]}
-            maxYear={years[years.length - 1]}
-            maxYearRef={maxYearRef}
-            minYearRef={minYearRef}
-          />
+          <TimeIntervalHeader />
           <div className="fixed-elements">
-            {/* <div className="guide-left" />
-            <div className="guide-right" /> */}
             <div className="guide-vertical-center" />
             <div className="guide-horizontal-center" />
             <div className="circle-wrapper" ref={circleRef}>
@@ -159,20 +148,13 @@ const App = () => {
                 onSelect: changeTimeInterval,
               }}
             />
+
             <TimeIntervalSlider
               events={sortedEvents}
               titleKey={timeInterval.name}
               swiperRef={swiperRef}
             />
           </div>
-
-          {/* <div className="mobile-only">
-            <TimeIntervalDots
-              items={TIME_INTERVAL}
-              activeIdx={timeIntervalIndex}
-              onSelect={changeTimeInterval}
-            />
-          </div> */}
         </div>
       </div>
     </div>

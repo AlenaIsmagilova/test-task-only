@@ -1,0 +1,26 @@
+@use "../../styles/variables.scss" as *;
+
+.dots-wrapper {
+  display: none;
+
+  @media (max-width: 1024px) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.dot {
+  border-radius: 50%;
+  background: rgba(66, 86, 122, 0.4);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+
+  &.active {
+    background: $main-gray;
+  }
+  &:hover:not(.active) {
+    background: rgba(66, 86, 122, 0.5);
+  }
+}

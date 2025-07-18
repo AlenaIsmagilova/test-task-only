@@ -1,0 +1,41 @@
+@use "../../styles/variables.scss" as *;
+
+.title {
+  font-size: 56px;
+  font-weight: 700;
+  max-width: 353px;
+  line-height: 1.2;
+  word-break: break-word;
+  color: $main-gray;
+  margin: 0;
+  text-align: left;
+  position: relative;
+  padding-left: 78px;
+
+  @media (max-width: 1024px) {
+    font-size: 20px;
+    padding: 0;
+  }
+}
+
+.title::before {
+  background: linear-gradient(to bottom, $main-blue 0%, $pink 100%);
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+
+  @media (max-width: 1024px) {
+    content: none;
+  }
+}
+
+.line-start {
+  display: block;
+}
+
+.second {
+  margin-left: 0;
+}

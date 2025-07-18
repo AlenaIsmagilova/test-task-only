@@ -1,30 +1,11 @@
-interface ITimeIntervalHeaderProps {
-  minYear: number;
-  maxYear: number;
-  minYearRef: React.Ref<HTMLParagraphElement>;
-  maxYearRef: React.Ref<HTMLParagraphElement>;
-}
+import css from "./TimeIntervalHeader.module.scss";
 
-const TimeIntervalHeader = ({
-  minYear,
-  maxYear,
-  minYearRef,
-  maxYearRef,
-}: ITimeIntervalHeaderProps) => (
+const TimeIntervalHeader = () => (
   <div>
-    <h1 className="title">
-      <span className="line-start">Исторические</span>
-      <span className="line-start second">даты</span>
+    <h1 className={css.title}>
+      <span className={css.lineStart}>Исторические</span>
+      <span className={`${css.lineStart} ${css.second}`}>даты</span>
     </h1>
-
-    {/* <div className="years-center">
-      <p ref={minYearRef} className="year-left">
-        {minYear}
-      </p>
-      <p ref={maxYearRef} className="year-right">
-        {maxYear}
-      </p>
-    </div> */}
   </div>
 );
 

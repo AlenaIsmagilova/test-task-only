@@ -1,0 +1,50 @@
+@use "../../styles/variables.scss" as *;
+
+.swiper-section {
+  margin-right: 100px;
+
+  @media (max-width: 1024px) {
+    margin-right: 0;
+    margin-bottom: 78px;
+  }
+}
+
+.event-card {
+  background-color: transparent;
+  color: $main-gray;
+  width: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.event-year {
+  color: $main-blue;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  text-transform: uppercase;
+  margin: 0 0 15px 0;
+  text-align: left;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+    margin: 20px 0 15px 0;
+  }
+}
+
+.event-name {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  color: $main-gray;
+  margin: 0;
+  text-align: left;
+
+  @media (max-width: 1024px) {
+    font-size: 14px;
+    line-height: 145%;
+    height: 80px;
+  }
+}

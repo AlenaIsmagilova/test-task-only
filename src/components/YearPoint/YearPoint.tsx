@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { BIG_BUTTON_SIZE, SMALL_BUTTON_SIZE } from "../../constants/contants";
+import css from "./YearPoint.module.scss";
 
 interface IYearPointProps {
   left: number;
@@ -87,16 +88,16 @@ const YearPoint = ({
   };
 
   return (
-    <div className="year-point-wrapper" style={{ left, top }}>
+    <div className={css.yearPointWrapper} style={{ left, top }}>
       <button
         ref={btnRef}
-        className={active ? "year-button-active" : "year-button"}
+        className={active ? css.yearButtonActive : css.yearButton}
         // style={{ left, top }}
         onClick={onSelect}
         onMouseEnter={handleEnter}
         onMouseLeave={handleLeave}
       >
-        <p className="year-button-content">{showNum ? index + 1 : null}</p>
+        <p className={css.yearButtonContent}>{showNum ? index + 1 : null}</p>
       </button>
       {/* {showNum && (
         <span className="sphere-label" ref={labelRef}>

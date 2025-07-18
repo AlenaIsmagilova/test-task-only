@@ -1,0 +1,44 @@
+@use "../../styles/variables.scss" as *;
+
+.year-button,
+.year-button-active {
+  display: block;
+  position: relative;
+  z-index: 1;
+  padding: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 50%;
+  border: none;
+}
+
+.year-point-wrapper {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: block;
+  pointer-events: auto;
+}
+
+.year-button {
+  width: $year-button-size;
+  height: $year-button-size;
+  background-color: $main-gray;
+}
+
+.year-button-active {
+  width: $button-size;
+  height: $button-size;
+  background: rgba(244, 245, 249, 1);
+  border: 1px solid $gray-border;
+  color: $main-gray;
+}
+
+.year-button-content {
+  display: block;
+  transform: rotate(calc(-1 * var(--rotation, 0deg)));
+  transition: opacity 0.25s ease;
+  margin: 0;
+  font-family: "PT Sans";
+}
