@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import gsap from "gsap";
 import { BIG_BUTTON_SIZE, SMALL_BUTTON_SIZE } from "../../constants/contants";
 import css from "./YearPoint.module.scss";
@@ -25,7 +25,6 @@ const YearPoint = ({
   const [hover, setHover] = useState(false);
   const btnRef = useRef<HTMLButtonElement>(null);
   const activeRef = useRef(active);
-  // const labelRef = useRef<HTMLSpanElement>(null);
   const showNum = active || hover;
 
   useEffect(() => {
@@ -55,23 +54,13 @@ const YearPoint = ({
 
   useEffect(() => {
     gsap.killTweensOf(btnRef.current);
-    gsap.set(btnRef.current!, {
+    gsap.to(btnRef.current!, {
       width: active ? BIG_BUTTON_SIZE : SMALL_BUTTON_SIZE,
       height: active ? BIG_BUTTON_SIZE : SMALL_BUTTON_SIZE,
       backgroundColor: active ? "rgba(244,245,249,1)" : "#42567A",
       border: active ? "1px solid #c0c7d1" : "0px solid transparent",
     });
   }, [active]);
-
-  // useEffect(() => {
-  //   if (!labelRef.current) return;
-
-  //   gsap.to(labelRef.current, {
-  //     opacity: active ? 1 : 0,
-  //     duration: 0.3,
-  //     ease: "power2.out",
-  //   });
-  // }, [active]);
 
   const handleEnter = () => {
     setHover(true);
@@ -92,18 +81,12 @@ const YearPoint = ({
       <button
         ref={btnRef}
         className={active ? css.yearButtonActive : css.yearButton}
-        // style={{ left, top }}
         onClick={onSelect}
         onMouseEnter={handleEnter}
         onMouseLeave={handleLeave}
       >
         <p className={css.yearButtonContent}>{showNum ? index + 1 : null}</p>
       </button>
-      {/* {showNum && (
-        <span className="sphere-label" ref={labelRef}>
-          {label}
-        </span>
-      )} */}
     </div>
   );
 };
