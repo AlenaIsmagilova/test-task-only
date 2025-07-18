@@ -2,11 +2,13 @@
   "name": "test-task-only",
   "version": "1.0.0",
   "description": "",
+  "homepage": "https://alenaismagilova.github.io/test-task-only",
   "main": "index.js",
   "scripts": {
     "dev": "webpack serve --mode development --hot",
     "build": "webpack --mode production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +24,7 @@
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "css-loader": "^7.1.2",
+    "gh-pages": "^6.3.0",
     "html-webpack-plugin": "^5.6.3",
     "sass": "^1.89.2",
     "sass-loader": "^16.0.5",
